@@ -1,7 +1,3 @@
-const calenderEl = document.querySelector(".container");
+var todayEl = document.querySelector('#currentDay');
 
-for (let hour = 1; hour < 9; hour++) {
-
-        calenderEl.insertAdjacentHTML("beforeend", `<div
-        class = "hour row">${hour}</div>`);
-}
+todayEl.innerHTML = moment().format("MMMM Do, YYYY");
