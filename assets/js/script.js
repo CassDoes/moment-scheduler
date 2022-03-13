@@ -55,7 +55,8 @@ $("#seventeen").val(localStorage.getItem("textarea9"));
 
 //setting DOM element to each timeblock
 var hour9 = document.querySelector(".h-9");
-  //attempting to display time from JS instead of index file but the format isn't the same as the others
+  //attempting to display time from script file instead of index file but the format isn't the same as the others
+  //leaving this as-is to play with at a later date and don't want to forget the code!
   hour9.textContent = moment("9", "h").format("ha");
 var hour10 = document.querySelector(".h-10");
 var hour11 = document.querySelector(".h-11");
@@ -68,47 +69,124 @@ var hour17 = document.querySelector(".h-17");
 
 
 //timeblock array to set each timeblock to specific time
-let hourArray = [
-  hour9 = moment("9", "h").format("h"),
-  hour10 = "10",
-  hour11 = 11,
-  hour12 = 12,
-  hour13 = 13,
-  hour14 = 14,
-  hour15 = moment("15", "ha").format("ha"),
-  hour16 = 16,
-  hour17 = 17
-];
+//--experimenting with different ways to set timeblocks to see if that makes the timeEl() work but no success so far
+hour9 = 9;
+hour10 = 10;
+hour11 = 11;
+hour12 = 12;
+hour13 = 13;
+hour14 = 14;
+hour15 = 15;
+hour16 = 16;
+hour17 = 17;
 
 
-//found current time at page load and attempted to compare with times set in array.
-//applied classes (past, present, future) based on comparison without success ("else" statement is the only one working)
+//redundant but can't figure out how to make my array work so whatevers... This will have to do!
 var timeEl = function() {
-
-  let getTime = moment().format("h");
+  let getTime = moment().format("H");
   console.log(getTime);
 
-  var hourArray = $(".hour");
-
-  for (i = 0; i < hourArray.length; i++) {
-    let hour = $(hourArray[i]).attr('id');
-    console.log(hour);
-
-    
-    if (getTime < hourArray[i]) {
-      hourArray.addClass("past");
-      console.log("past");
+    //checking time on 9am div
+    if (hour9 < getTime) {
+      $(".h-9").addClass("past");
+    }
+    else if (hour9 == getTime) {
+      $(".h-9").addClass("present");
     } 
-    else if (getTime === hourArray[i]) {
-      $(hourArray[i]).addClass("present");
+    else if (hour9 > getTime) {
+      $(".h-9").addClass("future");
+    }
+
+    //checking time on 10am div
+    if (hour10 < getTime) {
+      $(".h-10").addClass("past");
+    }
+    else if (hour10 == getTime) {
+      $(".h-10").addClass("present");
+    } 
+    else if (hour10 > getTime) {
+      $(".h-10").addClass("future");
+    }
+
+    //checking time on 11am div
+    if (hour11 < getTime) {
+      $(".h-11").addClass("past");
+    }
+    else if (hour11 == getTime) {
+      $(".h-11").addClass("present");
+    } 
+    else if (hour11 > getTime) {
+      $(".h-11").addClass("future");
+    }
+
+    //checking time on 12pm div
+    if (hour12 < getTime) {
+      $(".h-12").addClass("past");
+    }
+    else if (hour12 == getTime) {
+      $(".h-12").addClass("present");
+    } 
+    else if (hour12 > getTime) {
+      $(".h-12").addClass("future");
+    }
+
+    //checking time on 1pm div
+    if (hour13 < getTime) {
+      $(".h-13").addClass("past");
+    }
+    else if (hour13 == getTime) {
+      $(".h-13").addClass("present");
+    } 
+    else if (hour13 > getTime) {
+      $(".h-13").addClass("future");
+    }
+
+    //checking time on 2pm div
+    if (hour14 < getTime) {
+      $(".h-14").addClass("past");
+    }
+    else if (hour14 == getTime) {
+      $(".h-14").addClass("present");
+    } 
+    else if (hour14 > getTime) {
+      $(".h-14").addClass("future");
+    }
+
+    //checking time on 3pm div
+    if (hour15 < getTime) {
+      $(".h-15").addClass("past");
+    }
+    else if (hour15 == getTime) {
+      $(".h-15").addClass("present");
       console.log("present");
     } 
-    else {
-      $(hourArray[i]).addClass("future");
-      console.log("future");
+    else if (hour15 > getTime) {
+      $(".h-15").addClass("future");
+    }
+
+    //checking time on 4pm div
+    if (hour16 < getTime) {
+      $(".h-16").addClass("past");
+    }
+    else if (hour16 == getTime) {
+      $(".h-16").addClass("present");
+      console.log("present");
+    } 
+    else if (hour16 > getTime) {
+      $(".h-16").addClass("future");
+    }
+
+    //checking time on 5pm div
+    if (hour17 < getTime) {
+      $(".h-17").addClass("past");
+    }
+    else if (hour17 == getTime) {
+      $(".h-17").addClass("present");
+    } 
+    else if (hour17 > getTime) {
+      $(".h-17").addClass("future");
     }
   }
-}
 
 timeEl();
 
